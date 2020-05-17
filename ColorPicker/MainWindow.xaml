@@ -1,0 +1,59 @@
+﻿<Window x:Class="ColorPicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColorPicker"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="Height" Width="860">
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Column="2" Header="Kolor" Margin="5" Padding="5" VerticalAlignment="Center">
+                <StackPanel>
+                    <Border Background="{Binding RGB.Brush}" BorderBrush="LightGray" BorderThickness="1" Padding="10" Margin="5" />
+                    <Image Grid.Row="1" x:Name="ColorPicker" Source="/ColorPicker;component/ColorSpectrum.png" Canvas.Left="1" Margin="5" MouseMove="ColorPicker_OnMouseMove" MouseDown="ColorPicker_OnMouseDown" />
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="RGB" Margin="5" Padding="5">
+                <StackPanel>
+                    <Label Margin="5 0 5 0">R:</Label>
+                    <TextBox Text="{Binding RGB.R, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 5 0" Padding="5" PreviewTextInput="ValidateInput" />
+                    <Slider Value="{Binding RGB.R, Mode=TwoWay}" Margin="5" Minimum="0" Maximum="255" />
+                    <Label Margin="5 0 5 0">G:</Label>
+                    <TextBox Text="{Binding RGB.G, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 5 0" Padding="5" PreviewTextInput="ValidateInput" />
+                    <Slider Value="{Binding RGB.G, Mode=TwoWay}" Margin="5" Minimum="0" Maximum="255" />
+                    <Label Margin="5 0 5 0">B:</Label>
+                    <TextBox Text="{Binding RGB.B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 5 0" Padding="5" PreviewTextInput="ValidateInput" />
+                    <Slider Value="{Binding RGB.B, Mode=TwoWay}" Margin="5" Minimum="0" Maximum="255" />
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Header="CMYK" Margin="5" Padding="5">
+                <StackPanel>
+                    <Label Margin="5 0 5 0">C:</Label>
+                    <TextBox Text="{Binding CMYK.C, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 5 0" Padding="5" PreviewTextInput="ValidateInput" />
+                    <Slider Value="{Binding CMYK.C, Mode=TwoWay}" Margin="5" Minimum="0" Maximum="255" />
+                    <Label Margin="5 0 5 0">M:</Label>
+                    <TextBox Text="{Binding CMYK.M, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 5 0" Padding="5" PreviewTextInput="ValidateInput" />
+                    <Slider Value="{Binding CMYK.M, Mode=TwoWay}" Margin="5" Minimum="0" Maximum="255" />
+                    <Label Margin="5 0 5 0">Y:</Label>
+                    <TextBox Text="{Binding CMYK.Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 5 0" Padding="5" PreviewTextInput="ValidateInput" />
+                    <Slider Value="{Binding CMYK.Y, Mode=TwoWay}" Margin="5" Minimum="0" Maximum="255" />
+                    <Label Margin="5 0 5 0">K:</Label>
+                    <TextBox Text="{Binding CMYK.K, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 5 0" Padding="5" />
+                    <Slider Value="{Binding CMYK.K, Mode=TwoWay}" Margin="5" Minimum="0" Maximum="255" />
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>
